@@ -1,0 +1,250 @@
+-------------------------------------------------
+-- EX NO : 01
+-------------------------------------------------
+
+-- 1.1 TABLE CREATION
+SELECT * FROM customer;
+SELECT * FROM account;
+SELECT * FROM loan;
+SELECT * FROM branch;
+SELECT * FROM depositor;
+SELECT * FROM borrower;
+
+-------------------------------------------------
+-- 1.2 DELETE CASCADE
+-------------------------------------------------
+CREATE TABLE countries(
+  cid NUMBER(5),
+  cname VARCHAR2(25),
+  ccode VARCHAR2(5),
+  PRIMARY KEY(cid)
+);
+
+INSERT INTO countries VALUES(1,'usa','25');
+INSERT INTO countries VALUES(2,'uk','26');
+
+CREATE TABLE states(
+  sid NUMBER(5),
+  sname VARCHAR2(25),
+  scode VARCHAR2(5),
+  cid NUMBER(5)
+);
+
+INSERT INTO states VALUES(1,'texas','20',1);
+INSERT INTO states VALUES(2,'arizona','21',2);
+
+ALTER TABLE states
+ADD CONSTRAINT fk_states_countries
+FOREIGN KEY(cid) REFERENCES countries(cid) ON DELETE CASCADE;
+
+DELETE FROM countries WHERE cid=1;
+COMMIT;
+
+-------------------------------------------------
+-- 1.3 ALTER TABLE
+-------------------------------------------------
+ALTER TABLE dep ADD city VARCHAR2(20);
+ALTER TABLE dep ADD PRIMARY KEY(ano);
+ALTER TABLE act MODIFY ano NUMBER(20);
+ALTER TABLE act RENAME COLUMN balance TO amount;
+ALTER TABLE dep DROP COLUMN city;
+COMMIT;
+
+-------------------------------------------------
+-- EX NO : 02
+-------------------------------------------------
+
+-- 2.1 INSERTION
+INSERT INTO tha VALUES('thameem',101);
+INSERT INTO tha VALUES('yasar',102);
+INSERT INTO tha VALUES('ansari',103);
+INSERT INTO tha VALUES('shameer',104);
+
+-------------------------------------------------
+-- 2.2 ARITHMETIC, LOGICAL, COMPARISON
+-------------------------------------------------
+SELECT * FROM cust1 WHERE cname='thameem' AND address='trichy';
+SELECT * FROM ln WHERE amount>20000;
+SELECT * FROM ln WHERE amount<30000;
+COMMIT;
+
+-------------------------------------------------
+-- 2.3 STRING OPERATION
+-------------------------------------------------
+SELECT * FROM br WHERE asset>300000 AND bcity='airport';
+SELECT * FROM br WHERE bcity LIKE 'a%';
+SELECT * FROM br WHERE bcity LIKE '%y';
+SELECT * FROM br WHERE bcity LIKE '%u';
+COMMIT;
+
+-------------------------------------------------
+-- 2.4 TUPLE VARIABLE
+-------------------------------------------------
+SELECT * FROM br;
+SELECT t.bname FROM br t, br s
+WHERE t.asset > s.asset AND s.bcity='airport';
+COMMIT;
+
+-------------------------------------------------
+-- 2.5 ORDERING OF TUPLE
+-------------------------------------------------
+SELECT * FROM cust1;
+SELECT cname FROM cust1 ORDER BY cname ASC;
+SELECT cname FROM cust1 ORDER BY cname DESC;
+COMMIT;
+
+-------------------------------------------------
+-- 2.6 SET OPERATION
+-------------------------------------------------
+SELECT bname FROM ln UNION SELECT bname FROM act;
+SELECT bname FROM ln INTERSECT SELECT bname FROM act;
+SELECT bname FROM ln MINUS SELECT bname FROM act;
+COMMIT;
+
+-------------------------------------------------
+-- 2.7 AGGREGATE FUNCTIONS
+-------------------------------------------------
+SELECT SUM(amount) FROM ln;
+SELECT AVG(amount) FROM ln;
+SELECT COUNT(amount) FROM ln;
+SELECT MAX(amount) FROM ln;
+SELECT MIN(amount) FROM ln;
+SELECT bname, SUM(amount)
+FROM ln
+GROUP BY bname
+HAVING SUM(amount)>3000000;
+COMMIT;
+
+-------------------------------------------------
+-- 2.8 GROUP BY & HAVING
+-------------------------------------------------
+SELECT bname, AVG(asset) FROM br GROUP BY bname;
+SELECT bname, SUM(asset) FROM br GROUP BY bname HAVING SUM(asset)>30000;
+COMMIT;
+
+-------------------------------------------------
+-- 2.9 NESTED SUBQUERIES
+-------------------------------------------------
+SELECT DISTINCT cname
+FROM cust1
+WHERE cname IN (SELECT cname FROM dep);
+
+-------------------------------------------------
+-- 2.10 VIEWS
+-------------------------------------------------
+CREATE VIEW thaa AS
+SELECT bname, bcity FROM br;
+COMMIT;
+
+-------------------------------------------------
+-- 2.11 DELETION
+-------------------------------------------------
+DELETE FROM act WHERE bname='trichy';
+COMMIT;
+
+-------------------------------------------------
+-- 2.12 UPDATE
+-------------------------------------------------
+UPDATE act SET amount=amount*1.1;
+UPDATE act
+SET amount = CASE
+  WHEN amount<=10000 THEN amount*1.05
+  ELSE amount+5
+END;
+COMMIT;
+
+-------------------------------------------------
+-- 2.13 JOINS
+-------------------------------------------------
+SELECT * FROM tha INNER JOIN markk ON tha.regno=markk.regno;
+SELECT * FROM tha LEFT JOIN markk ON tha.regno=markk.regno;
+SELECT * FROM tha RIGHT JOIN markk ON tha.regno=markk.regno;
+COMMIT;
+
+-------------------------------------------------
+-- EX NO : 03
+-------------------------------------------------
+
+-- 3.1 REVERSE STRING
+SET SERVEROUTPUT ON
+DECLARE
+  s1 VARCHAR2(20);
+  s2 VARCHAR2(20);
+  c NUMBER;
+BEGIN
+  s1 := '&string';
+  c := LENGTH(s1);
+  WHILE c>0 LOOP
+    s2 := s2 || SUBSTR(s1,c,1);
+    c := c-1;
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE(s2);
+END;
+/
+
+-------------------------------------------------
+-- 3.2 STUDENT MARK PREPARATION
+-------------------------------------------------
+SET SERVEROUTPUT ON
+DECLARE
+  CURSOR c1 IS SELECT * FROM student;
+  x student%ROWTYPE;
+BEGIN
+  OPEN c1;
+  LOOP
+    FETCH c1 INTO x;
+    EXIT WHEN c1%NOTFOUND;
+    UPDATE student
+    SET total = x.mark1 + x.mark2,
+        average = (x.mark1 + x.mark2)/2
+    WHERE rollno=x.rollno;
+  END LOOP;
+  CLOSE c1;
+END;
+/
+
+-------------------------------------------------
+-- 3.3 PAYROLL PREPARATION
+-------------------------------------------------
+SET SERVEROUTPUT ON
+DECLARE
+  CURSOR c IS SELECT * FROM employee;
+  x employee%ROWTYPE;
+BEGIN
+  OPEN c;
+  LOOP
+    FETCH c INTO x;
+    EXIT WHEN c%NOTFOUND;
+    UPDATE employee
+    SET hra=x.bpay*0.5,
+        pf=x.bpay*0.1,
+        gpay=x.bpay+(x.bpay*0.5),
+        netpay=(x.bpay+(x.bpay*0.5))-(x.bpay*0.1)
+    WHERE eno=x.eno;
+  END LOOP;
+  CLOSE c;
+END;
+/
+
+-------------------------------------------------
+-- 3.4 FACTORIAL USING RECURSIVE FUNCTION
+-------------------------------------------------
+CREATE OR REPLACE FUNCTION fact(n NUMBER)
+RETURN NUMBER IS
+BEGIN
+  IF n=0 THEN
+    RETURN 1;
+  ELSE
+    RETURN n*fact(n-1);
+  END IF;
+END;
+/
+
+SET SERVEROUTPUT ON
+DECLARE
+  a NUMBER;
+BEGIN
+  a := &num;
+  DBMS_OUTPUT.PUT_LINE(fact(a));
+END;
+/
