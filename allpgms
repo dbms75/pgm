@@ -1,0 +1,2255 @@
+EX NO:01                                   1.1 TABLE CREATION
+
+SQL> create table customer1(cid number(5),cname varchar2(20),caddr varchar2(20));
+Table created.
+SQL> insert into customer1 values(&cid,'&cname','&caddr');
+Enter value for cid: 710
+Enter value for cname: gopi
+Enter value for caddr: airport
+old   1: insert into customer1 values(&cid,'&cname','&caddr')
+new   1: insert into customer1 values(710,'gopi','airport')
+1 row created.
+SQL> /   
+Enter value for cid: 810
+Enter value for cname: khaleef
+Enter value for caddr: ilayangudi
+old   1: insert into customer1 values(&cid,'&cname','&caddr')
+new   1: insert into customer1 values(810,'khaleef','ilayangudi')
+1 row created.
+SQL> /
+Enter value for cid: 910
+Enter value for cname: saran
+Enter value for caddr: samayapuram
+old   1: insert into customer1 values(&cid,'&cname','&caddr')
+new   1: insert into customer1 values(910,'saran','samayapuram')
+1 row created.
+SQL> /
+Enter value for cid: 1100
+Enter value for cname: ajay
+Enter value for caddr: mannarpuram
+old   1: insert into customer1 values(&cid,'&cname','&caddr')
+new   1: insert into customer1 values(1100,'ajay','mannarpuram')
+1 row created.
+SQL> desc customer1;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CID						    NUMBER(5)
+ CNAME						    VARCHAR2(20)
+ CADDR						    VARCHAR2(20)
+SQL> select * from customer1;
+       CID CNAME		CADDR
+---------- -------------------- --------------------
+       710 gopi 		airport
+       810 khaleef		ilayangudi
+       910 saran		samayapuram
+      1100 ajay 		mannarpuram
+SQL> create table account(Anum number(15),bname varchar2(20),balance number(20));
+Table created.
+SQL> insert into account values(&Anum,'&bname',&balance);
+Enter value for anum: 100
+Enter value for bname: iob
+Enter value for balance: 50000
+old   1: insert into account values(&Anum,'&bname',&balance)
+new   1: insert into account values(100,'iob',50000)
+1 row created.
+SQL> /
+Enter value for anum: 101
+Enter value for bname: iob
+Enter value for balance: 25000
+old   1: insert into account values(&Anum,'&bname',&balance)
+new   1: insert into account values(101,'iob',25000)
+1 row created.
+SQL> /
+Enter value for anum: 102
+Enter value for bname: iob
+Enter value for balance: 45000
+old   1: insert into account values(&Anum,'&bname',&balance)
+new   1: insert into account values(102,'iob',45000)
+1 row created.
+SQL> /
+Enter value for anum: 103
+Enter value for bname: iob
+Enter value for balance: 60000
+old   1: insert into account values(&Anum,'&bname',&balance)
+new   1: insert into account values(103,'iob',60000)
+1 row created.
+SQL> desc account
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ANUM						    NUMBER(15)
+ BNAME						    VARCHAR2(20)
+ BALANCE					                NUMBER(20)
+SQL> select * from account;
+      ANUM BNAME		   BALANCE
+---------- -------------------- ----------
+       100 iob			     50000
+       101 iob			     25000
+       102 iob			     45000
+       103 iob			     60000
+SQL> create table loan5(lno number(10),bname varchar2(20),amount number(20),primary key(lno));
+Table created.
+SQL> insert into loan5 values(&lno,'&bname',&amount);
+Enter value for lno: 500
+Enter value for bname: iob
+Enter value for amount: 20000
+old   1: insert into loan5 values(&lno,'&bname',&amount)
+new   1: insert into loan5 values(500,'iob',20000)
+1 row created.
+SQL> /
+Enter value for lno: 501
+Enter value for bname: iob
+Enter value for amount: 15000
+old   1: insert into loan5 values(&lno,'&bname',&amount)
+new   1: insert into loan5 values(501,'iob',15000)
+1 row created.
+SQL> /
+Enter value for lno: 502
+Enter value for bname: iob
+Enter value for amount: 30000
+old   1: insert into loan5 values(&lno,'&bname',&amount)
+new   1: insert into loan5 values(502,'iob',30000)
+1 row created.
+SQL> /
+Enter value for lno: 503
+Enter value for bname: iob
+Enter value for amount: 40000
+old   1: insert into loan5 values(&lno,'&bname',&amount)
+new   1: insert into loan5 values(503,'iob',40000)
+1 row created.
+SQL> desc loan;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME						    VARCHAR2(20)
+ ACNO						    NUMBER(38)
+ BRANCH 					    VARCHAR2(20)
+ AMOUNT 					    NUMBER(38)
+SQL> desc loan5;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LNO					   NOT NULL NUMBER(10)
+ BNAME						VARCHAR2(20)
+ AMOUNT 					           NUMBER(20)
+SQL> select * from loan5;
+       LNO BNAME		    AMOUNT
+---------- -------------------- ----------
+       500 iob			     20000
+       501 iob			     15000
+       502 iob			     30000
+       503 iob			     40000
+SQL> create table branch(bname varchar2(20),bcity varchar2(20),assets number(20));
+Table created.
+SQL> desc branch;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BNAME						    VARCHAR2(20)
+ BCITY						               VARCHAR2(20)
+ ASSETS 					               NUMBER(20)
+SQL> insert into branch values('&bname','&bcity',&assets);
+Enter value for bname: iob
+Enter value for bcity: trichy
+Enter value for assets: 20000000
+old   1: insert into branch values('&bname','&bcity',&assets)
+new   1: insert into branch values('iob','trichy',20000000)
+1 row created.
+SQL> /
+Enter value for bname: iob
+Enter value for bcity: kerala
+Enter value for assets: 300000
+old   1: insert into branch values('&bname','&bcity',&assets)
+new   1: insert into branch values('iob','kerala',300000)
+1 row created.
+SQL> /
+Enter value for bname: iob
+Enter value for bcity: chennai
+Enter value for assets: 50000 
+old   1: insert into branch values('&bname','&bcity',&assets)
+new   1: insert into branch values('iob','chennai',50000)
+1 row created.
+SQL> /
+Enter value for bname: iob
+Enter value for bcity: jammmu
+Enter value for assets: 600000
+old   1: insert into branch values('&bname','&bcity',&assets)
+new   1: insert into branch values('iob','jammmu',600000)
+1 row created.
+SQL> select * from branch;
+BNAME		     BCITY		      ASSETS
+-------------------- -------------------- ----------
+iob		     trichy		    20000000
+iob		     kerala		      300000
+iob		     chennai		       50000
+iob		     jammmu		      600000
+
+SQL> create table depositor(cname varchar2(20),anum number(10));
+Table created.
+SQL> desc depositor;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME						    VARCHAR2(20)
+ ANUM						    NUMBER(10)
+SQL> insert into depositor values('&cname',&anum);
+Enter value for cname: ajay
+Enter value for anum: 999
+old   1: insert into depositor values('&cname',&anum)
+new   1: insert into depositor values('ajay',999)
+1 row created.
+SQL> /
+Enter value for cname: imam
+Enter value for anum: 998
+old   1: insert into depositor values('&cname',&anum)
+new   1: insert into depositor values('imam',998)
+1 row created.
+SQL> /
+Enter value for cname: gopi
+Enter value for anum: 997
+old   1: insert into depositor values('&cname',&anum)
+new   1: insert into depositor values('gopi',997)
+1 row created.
+
+SQL> /
+Enter value for cname: hari
+Enter value for anum: 996
+old   1: insert into depositor values('&cname',&anum)
+new   1: insert into depositor values('hari',996)
+1 row created.
+SQL> select * from depositor;
+CNAME			   ANUM
+-------------------- ----------
+ajay			    999
+imam			    998
+gopi			    997
+hari			    996
+SQL> create table borrower2(cname varchar2(20),lno number(10));
+Table created.
+SQL> desc borrower2;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME						    VARCHAR2(20)
+ LNO						               NUMBER(10)
+SQL> insert into borrower2('&cname',&lno);
+Enter value for cname: harish
+Enter value for lno: 1
+old   1: insert into borrower2('&cname',&lno)
+new   1: insert into borrower2('harish',1)
+insert into borrower2('harish',1)
+                     *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+SQL> insert into borrower2 values('&cname',&lno);
+Enter value for cname: harish
+Enter value for lno: 01
+old   1: insert into borrower2 values('&cname',&lno)
+new   1: insert into borrower2 values('harish',01)
+1 row created.
+SQL> /
+Enter value for cname: david
+Enter value for lno: 02
+old   1: insert into borrower2 values('&cname',&lno)
+new   1: insert into borrower2 values('david',02)
+1 row created.
+SQL> /
+Enter value for cname: thameem
+Enter value for lno: 03
+old   1: insert into borrower2 values('&cname',&lno)
+new   1: insert into borrower2 values('thameem',03)
+1 row created.
+SQL> /
+Enter value for cname: syed
+Enter value for lno: 04
+old   1: insert into borrower2 values('&cname',&lno)
+new   1: insert into borrower2 values('syed',04)
+1 row created.
+SQL> select * from borrower2;
+CNAME			    LNO
+-------------------- ----------
+harish			      1
+david			      2
+thameem 		      3
+syed			      4
+SQL> create table supplier(sno number(10),pno number(10),color varchar2(15),quantity number(10),primary key(sno,pno));
+Table created.
+SQL> desc supplier;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SNO					   NOT NULL NUMBER(10)
+ PNO					   NOT NULL NUMBER(10)
+ COLOR						VARCHAR2(15)
+ QUANTITY					           NUMBER(10)
+SQL> insert into supplier values(&sno,&pno,'&color',&quantity);
+Enter value for sno: 1001
+Enter value for pno: 405
+Enter value for color: blue
+Enter value for quantity: 100
+old   1: insert into supplier values(&sno,&pno,'&color',&quantity)
+new   1: insert into supplier values(1001,405,'blue',100)
+1 row created.
+
+SQL> /
+Enter value for sno: 1002
+Enter value for pno: 410
+Enter value for color: green
+Enter value for quantity: 250
+old   1: insert into supplier values(&sno,&pno,'&color',&quantity)
+new   1: insert into supplier values(1002,410,'green',250)
+1 row created.
+SQL> /
+Enter value for sno: 1003
+Enter value for pno: 415
+Enter value for color: red
+Enter value for quantity: 500
+old   1: insert into supplier values(&sno,&pno,'&color',&quantity)
+new   1: insert into supplier values(1003,415,'red',500)
+1 row created.
+SQL> /
+Enter value for sno: 1004
+Enter value for pno: 420
+Enter value for color: yellow
+Enter value for quantity: 550
+old   1: insert into supplier values(&sno,&pno,'&color',&quantity)
+new   1: insert into supplier values(1004,420,'yellow',550)
+1 row created.
+
+
+SQL> select * from supplier;
+
+       SNO	  PNO COLOR		QUANTITY
+---------- ---------- --------------- ----------
+      1001	  405 blue		     100
+      1002	  410 green		     250
+      1003	  415 red		     500
+      1004	  420 yellow		     550
+
+SQL> commit;
+
+Commit complete.
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+EX NO:01                                    1.2 DELETE CASCADE
+
+SQL> create table countries2(cid number(5),cname varchar2(25),ccode varchar2(25),primary key(cid));
+Table created.
+SQL> insert into countries2 values(&cid,'&cname','&ccode');
+Enter value for cid: 1
+Enter value for cname: united states
+Enter value for ccode: 25
+old   1: insert into countries2 values(&cid,'&cname','&ccode')
+new   1: insert into countries2 values(1,'united states','25')
+1 row created.
+SQL> /
+Enter value for cid: 2
+Enter value for cname: united kingdom
+Enter value for ccode: 26
+old   1: insert into countries2 values(&cid,'&cname','&ccode')
+new   1: insert into countries2 values(2,'united kingdom','26')
+1 row created.
+SQL> select * from countries2;
+       CID CNAME		     CCODE
+---------- ------------------------- -------------------------
+	 1 united states	     25
+	 2 united kingdom	     26
+SQL> create table states2(sid number(5),sname varchar2(25),scode varchar2(25),primary key(sid));
+Table created.
+SQL> insert into states2 values(&cid,'&sname','&scode');
+Enter value for cid: 1
+Enter value for sname: texas
+Enter value for scode: 20
+old   1: insert into states2 values(&cid,'&sname','&scode')
+new   1: insert into states2 values(1,'texas','20')
+1 row created.
+SQL> /
+Enter value for cid: 2
+Enter value for sname: arizona
+Enter value for scode: 21
+old   1: insert into states2 values(&cid,'&sname','&scode')
+new   1: insert into states2 values(2,'arizona','21')
+1 row created.
+SQL> select * from states2;
+       SID SNAME		     SCODE
+---------- ------------------------- -------------------------
+	 1 texas		     20
+	 2 arizona		     21
+SQL> alter table states2 add cid number(5);
+Table altered.
+SQL> select * from states2;
+       SID SNAME		     SCODE			      CID
+---------- ------------------------- ------------------------- ----------
+	 1 texas		     20
+	 2 arizona		     21
+SQL> update states2 set cid=1 where sid=1;
+1 row updated.
+SQL> update states2 set cid=1 where sid=2;
+1 row updated.
+SQL> select * from states2;
+       SID SNAME		     SCODE			      CID
+---------- ------------------------- ------------------------- ----------
+	 1 texas		     20 				1
+	 2 arizona		     21 				1
+SQL> select * from countries2;
+       CID CNAME		     CCODE
+---------- ------------------------- -------------------------
+	 1 united states	     25
+	 2 united kingdom	     26
+SQL> alter table states2 add constraint fk_states2_countries2_id foreign key(cid) references countries2(cid) on delete cascade;
+Table altered.
+SQL> delete from countries2 where cid=1;
+1 row deleted.
+SQL> select * from states2;
+no rows selected
+SQL> select * from countries2;
+       CID CNAME		     CCODE
+---------- ------------------------- -------------------------
+	 2 united kingdom	     26
+SQL> commit;
+Commit complete.
+EX NO:01                                         1.3 ALTER TABLE
+SQL> create table jamal(cname varchar2(10),ano number(20));
+Table created.
+SQL> insert into jamal values('&cname','&ano');
+Enter value for cname: ahamed
+Enter value for ano: 308
+old   1: insert into jamal values('&cname','&ano')
+new   1: insert into jamal values('ahamed','308')
+1 row created.
+SQL> select * from jamal;
+CNAME		  ANO
+---------- ----------
+ahamed		  308
+SQL> alter table jamal add city varchar(20);
+Table altered.
+SQL> desc jamal;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME						    VARCHAR2(10)
+ ANO						    NUMBER(20)
+ CITY						    VARCHAR2(20)
+SQL> alter table jamal modify ano number(20);
+Table altered.
+SQL> desc jamal;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME						    VARCHAR2(10)
+ ANO						    NUMBER(20)
+ CITY						    VARCHAR2(20)
+SQL> alter table jamal rename column ano to regno;
+Table altered.
+SQL> desc jamal;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME						    VARCHAR2(10)
+ REGNO						    NUMBER(20)
+ CITY						    VARCHAR2(20)
+SQL> alter table jamal drop column city;
+Table altered.
+SQL> select * from jamal;
+CNAME		REGNO
+---------- ----------
+ahamed		  308
+
+SQL> commit;
+Commit complete.
+
+
+
+
+
+
+EX NO:02                                     INSERTION
+
+SQL> create table computer(name varchar2(10),regno number(10));
+Table created.
+SQL> insert into computer values('&name','&regno');
+Enter value for name: thameem
+Enter value for regno: 101
+old   1: insert into computer values('&name','&regno')
+new   1: insert into computer values('thameem','101')
+
+1 row created.
+
+SQL> /
+Enter value for name: mohamed
+Enter value for regno: 102
+old   1: insert into computer values('&name','&regno')
+new   1: insert into computer values('mohamed','102')
+1 row created.
+
+SQL> /
+Enter value for name: ansari
+Enter value for regno: 103
+old   1: insert into computer values('&name','&regno')
+new   1: insert into computer values('ansari','103')
+1 row created.
+
+SQL> /
+Enter value for name: syed
+Enter value for regno: 104
+old   1: insert into computer values('&name','&regno')
+new   1: insert into computer values('syed','104')
+
+1 row created.
+
+SQL> select * from computer;
+
+NAME		REGNO
+---------- ----------
+thameem 	  101
+mohamed 	  102
+ansari		  103
+syed		  104
+
+
+
+
+
+
+
+
+
+
+         2.2 ARITHMETIC ,LOGICAL,COMPARISON OPERATOR
+SQL> create table emp5(eno number(5),ename varchar(10),salary number(10));
+Table created.
+SQL> desc emp5;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENO						    NUMBER(5)
+ ENAME						    VARCHAR2(10)
+ SALARY 					    NUMBER(10)
+SQL> insert into emp5 values(&eno,'&ename',&salary);            
+Enter value for eno: 2201
+Enter value for ename: ragu
+Enter value for salary: 500000
+old   1: insert into emp5 values(&eno,'&ename',&salary)
+new   1: insert into emp5 values(2201,'ragu',500000)
+1 row created.
+SQL> /
+Enter value for eno: 2202
+Enter value for ename: thasu
+Enter value for salary: 700000
+old   1: insert into emp5 values(&eno,'&ename',&salary)
+new   1: insert into emp5 values(2202,'thasu',700000)
+1 row created.
+SQL> /
+Enter value for eno: 2203
+Enter value for ename: jack
+Enter value for salary: 400000 
+old   1: insert into emp5 values(&eno,'&ename',&salary)
+new   1: insert into emp5 values(2203,'jack',400000)
+1 row created.
+SQL> / 
+Enter value for eno: 2203
+Enter value for ename: shajee
+Enter value for salary: 600000
+old   1: insert into emp5 values(&eno,'&ename',&salary)
+new   1: insert into emp5 values(2203,'shajee',600000)
+1 row created.
+SQL> select * from emp5;
+       ENO ENAME	  SALARY
+---------- ---------- ----------
+      2201 ragu 	  500000
+      2202 thasu	  700000
+      2203 jack 	  400000
+      2203 shajee	  600000
+SQL> select eno,ename,salary+100 as "bonus" from emp5;
+       ENO ENAME	   bonus
+---------- ---------- ----------
+      2201 ragu 	  500100
+      2202 thasu	  700100
+      2203 jack 	  400100
+      2203 shajee	  600100
+SQL> select eno,ename,salary-100 as "decrement" from emp5;
+       ENO ENAME       decrement
+---------- ---------- ----------
+      2201 ragu 	  499900
+      2202 thasu	  699900
+      2203 jack 	  399900
+      2203 shajee	  599900
+SQL> select eno,ename,salary * 100 as "increment" from emp5;
+       ENO ENAME       increment
+---------- ---------- ----------
+      2201 ragu 	50000000
+      2202 thasu	70000000
+      2203 jack 	40000000
+      2203 shajee	60000000
+SQL> select eno,ename,salary / 100 as "incentive" from emp5;
+       ENO ENAME       incentive
+---------- ---------- ----------
+      2201 ragu 	    5000
+      2202 thasu	    7000
+      2203 jack 	    4000
+      2203 shajee	    6000
+SQL> select * from emp5;
+       ENO ENAME	  SALARY
+---------- ---------- ----------
+      2201 ragu 	  500000
+      2202 thasu	  700000
+      2203 jack 	  400000
+      2203 shajee	  600000
+
+SQL> create table emp6(eno number(5),ename varchar(10),salary number(20),age number(5));
+Table created.
+SQL> desc emp6;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENO						    NUMBER(5)
+ ENAME						    VARCHAR2(10)
+ SALARY 					    NUMBER(20)
+ AGE						    NUMBER(5)
+SQL> insert into emp6 values(&eno,'&ename',&salary,&age);
+Enter value for eno: 2201
+Enter value for ename: ragu
+Enter value for salary: 500000
+Enter value for age: 20
+old   1: insert into emp6 values(&eno,'&ename',&salary,&age)
+new   1: insert into emp6 values(2201,'ragu',500000,20)
+1 row created.
+SQL> /
+Enter value for eno: 2202
+Enter value for ename: thasu
+Enter value for salary: 400000
+Enter value for age: 21
+old   1: insert into emp6 values(&eno,'&ename',&salary,&age)
+new   1: insert into emp6 values(2202,'thasu',400000,21)
+1 row created.
+SQL> /
+Enter value for eno: 2203
+Enter value for ename: jack
+Enter value for salary: 700000
+Enter value for age: 19
+old   1: insert into emp6 values(&eno,'&ename',&salary,&age)
+new   1: insert into emp6 values(2203,'jack',700000,19)
+1 row created.
+SQL> /
+Enter value for eno: 2204
+Enter value for ename: shajee
+Enter value for salary: 300000
+Enter value for age: 18
+old   1: insert into emp6 values(&eno,'&ename',&salary,&age)
+new   1: insert into emp6 values(2204,'shajee',300000,18)
+1 row created.
+SQL> select * from emp6;
+       ENO ENAME	  SALARY	AGE
+---------- ---------- ---------- ----------
+      2201 ragu 	  500000	 20
+      2202 thasu	  400000	 21
+      2203 jack 	  700000	 19
+      2204 shajee	  300000	 18
+SQL> select eno,ename,salary,age from emp6 where salary<400000 and age<19;
+       ENO ENAME	  SALARY	AGE
+---------- ---------- ---------- ----------
+      2204 shajee	  300000	 18
+SQL> select eno,ename,salary,age from emp6 where salary>300000 or age>18;
+       ENO ENAME	  SALARY	AGE
+---------- ---------- ---------- ----------
+      2201 ragu 	  500000	 20
+      2202 thasu	  400000	 21
+      2203 jack 	  700000	 19
+SQL> select eno,ename,salary,age from emp6 where not age=18;
+       ENO ENAME	  SALARY	AGE
+---------- ---------- ---------- ----------
+      2201 ragu 	  500000	 20
+      2202 thasu	  400000	 21
+      2203 jack 	  700000	 19
+SQL> select * from emp6;
+       ENO ENAME	  SALARY	AGE
+---------- ---------- ---------- ----------
+      2201 ragu 	  500000	 20
+      2202 thasu	  400000	 21
+      2203 jack 	  700000	 19
+      2204 shajee	  300000	 18
+SQL> select * from account;
+      ANUM BNAME		   BALANCE
+---------- -------------------- ----------
+       100 iob			     50000
+       101 iob			     25000
+       102 iob			     45000
+       103 iob			     60000
+SQL> select * from emp5 where salary=500000;
+       ENO ENAME	  SALARY
+---------- ---------- ----------
+      2201 ragu 	  500000
+SQL> select * from emp5 where salary>400000;
+       ENO ENAME	  SALARY
+---------- ---------- ----------
+      2201 ragu 	  500000
+      2202 thasu	  700000
+      2203 shajee	  600000
+SQL> select * from emp5 where salary<600000;
+       ENO ENAME	  SALARY
+---------- ---------- ----------
+      2201 ragu 	  500000
+      2203 jack 	  400000
+SQL> select * from emp5 where salary>=400000;
+
+       ENO ENAME	  SALARY
+---------- ---------- ----------
+      2201 ragu 	  500000
+      2202 thasu	  700000
+      2203 jack 	  400000
+      2203 shajee	  600000
+
+
+SQL> select * from emp5 where salary<=600000;
+
+       ENO ENAME	  SALARY
+---------- ---------- ----------
+
+      2201 ragu 	  500000
+      2203 jack 	  400000
+      2203 shajee	  600000
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX:02                                2.3  STRING OPERATION
+SQL> create table customer5(CID number(5),CNAME varchar2(20),address varchar2(20));
+Table created.
+SQL> desc customer5;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CID						    NUMBER(5)
+ CNAME						    VARCHAR2(20)
+ ADDRESS					    VARCHAR2(20)
+
+SQL> insert into customer5 values(&cid,'&cname','&address');
+Enter value for cid: 101
+Enter value for cname: robin
+Enter value for address: japan
+old   1: insert into customer5 values(&cid,'&cname','&address')
+new   1: insert into customer5 values(101,'robin','japan')
+1 row created.
+SQL> /
+Enter value for cid: 102
+Enter value for cname: nami
+Enter value for address: skyland
+old   1: insert into customer5 values(&cid,'&cname','&address')
+new   1: insert into customer5 values(102,'nami','skyland')
+1 row created.
+
+
+SQL> /
+Enter value for cid: 103
+Enter value for cname: vivi
+Enter value for address: dessert
+old   1: insert into customer5 values(&cid,'&cname','&address')
+new   1: insert into customer5 values(103,'vivi','dessert')
+1 row created.
+SQL> /
+Enter value for cid: 104
+Enter value for cname: ragu
+Enter value for address: trichy
+old   1: insert into customer5 values(&cid,'&cname','&address')
+new   1: insert into customer5 values(104,'ragu','trichy')
+1 row created.
+SQL> select * from customer5;
+
+       CID CNAME		ADDRESS
+---------- -------------------- --------------------
+       101 robin		japan
+       102 nami 		skyland
+       103 vivi 		dessert
+       104 ragu 		trichy
+SQL> select cname from customer5 where cname like 'r%';
+
+CNAME
+--------------------
+robin
+ragu
+SQL> select cname from customer5 where cname like '%i';
+CNAME
+--------------------
+nami
+vivi
+SQL> select cname from customer5 where cname like '%am%';
+CNAME
+--------------------
+nami
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+
+EX:02                                  2.4 TUPLE VARIABLE
+SQL> create table branch5(Bname varchar2(20),Bcity varchar2(20),assets number(10));
+Table created.
+SQL> desc branch5;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BNAME						    VARCHAR2(20)
+ BCITY						    VARCHAR2(20)
+ ASSETS 					    NUMBER(10)
+SQL> insert into branch5 values('&bname','&bcity',&assets);
+Enter value for bname: cantonment
+Enter value for bcity: trichy
+Enter value for assets: 50000
+old   1: insert into branch5 values('&bname','&bcity',&assets)
+new   1: insert into branch5 values('cantonment','trichy',50000)
+1 row created.
+SQL> /
+Enter value for bname: rockfort
+Enter value for bcity: madurai
+Enter value for assets: 40000
+old   1: insert into branch5 values('&bname','&bcity',&assets)
+new   1: insert into branch5 values('rockfort','madurai',40000)
+1 row created.
+SQL> /
+Enter value for bname: tnagar
+Enter value for bcity: chennai
+Enter value for assets: 30000
+old   1: insert into branch5 values('&bname','&bcity',&assets)
+new   1: insert into branch5 values('tnagar','chennai',30000)
+1 row created.
+SQL> /
+Enter value for bname: kknagar
+Enter value for bcity: salem
+Enter value for assets: 60000
+old   1: insert into branch5 values('&bname','&bcity',&assets)
+new   1: insert into branch5 values('kknagar','salem',60000)
+1 row created.
+SQL> select * from branch5;
+BNAME		     BCITY		      ASSETS
+-------------------- -------------------- ----------
+cantonment	     trichy		       50000
+rockfort	     madurai		       40000
+tnagar		     chennai		       30000
+kknagar 	     salem		       60000
+SQL> select t.bname from branch5 t,branch s where t.assets>s.assets and s.bcity='chennai';
+BNAME
+--------------------
+kknagar
+
+SQL> commit;
+
+Commit complete.
+EX NO:02                                  2.5 ORDERING OF TUPLE
+SQL> create table customer6(cid number(5),cname varchar2(20),address varchar2(20));
+
+Table created.
+
+SQL> insert into customer6 values('&cid','&cname','&address');    
+Enter value for cid: 101
+Enter value for cname: robin
+Enter value for address: japan
+old   1: insert into customer6 values('&cid','&cname','&address')
+new   1: insert into customer6 values('101','robin','japan')
+1 row created.
+
+SQL> /
+Enter value for cid: 102
+Enter value for cname: nami
+Enter value for address: skyland
+old   1: insert into customer6 values('&cid','&cname','&address')
+new   1: insert into customer6 values('102','nami','skyland')
+1 row created.
+
+SQL> /
+Enter value for cid: 103 
+Enter value for cname: vivi
+Enter value for address: dessert
+old   1: insert into customer6 values('&cid','&cname','&address')
+new   1: insert into customer6 values('103','vivi','dessert')
+1 row created.
+
+SQL> /
+Enter value for cid: 104
+Enter value for cname: ragu
+Enter value for address: trichy
+old   1: insert into customer6 values('&cid','&cname','&address')
+new   1: insert into customer6 values('104','ragu','trichy')
+1 row created.
+
+SQL> select * from customer6;
+       CID CNAME		ADDRESS
+---------- -------------------- --------------------
+       101 robin		japan
+       102 nami 		skyland
+       103 vivi 		dessert
+       104 ragu 		Trichy
+
+SQL> select cname from customer6 order by cname asc;
+CNAME
+--------------------
+nami
+ragu
+robin
+vivi
+SQL> select cname from customer6 order by cname desc;
+
+CNAME
+--------------------
+vivi
+robin
+ragu
+nami
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX NO:02                                 2.6 SET OPERATION
+SQL> create table loan7(lno number(5),bname varchar2(20),amount number(5));
+Table created.
+SQL> desc loan7;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LNO						    NUMBER(5)
+ BNAME						    VARCHAR2(20)
+ AMOUNT 					    NUMBER(5)
+
+SQL> insert into loan7 values('&lno','&bname','&amount');
+Enter value for lno: 1001
+Enter value for bname: cantonment
+Enter value for amount: 80000
+old   1: insert into loan7 values('&lno','&bname','&amount')
+new   1: insert into loan7 values('1001','cantonment','80000')
+1 row created.
+
+SQL> /
+Enter value for lno: 1002
+Enter value for bname: rockfort
+Enter value for amount: 70000
+old   1: insert into loan7 values('&lno','&bname','&amount')
+new   1: insert into loan7 values('1002','rockfort','70000')
+1 row created.
+
+SQL> /
+Enter value for lno: 1003
+Enter value for bname: bazar
+Enter value for amount: 50000
+old   1: insert into loan7 values('&lno','&bname','&amount')
+new   1: insert into loan7 values('1003','bazar','50000')
+1 row created.
+
+SQL> /
+Enter value for lno: 1004
+Enter value for bname: simco
+Enter value for amount: 40000
+old   1: insert into loan7 values('&lno','&bname','&amount')
+new   1: insert into loan7 values('1004','simco','40000')
+1 row created.
+
+SQL> select * from loan7;
+
+       LNO BNAME		    AMOUNT
+---------- -------------------- ----------
+      1001 cantonment		     80000
+      1002 rockfort		     70000
+      1003 bazar		     50000
+      1004 simco		     40000
+
+
+SQL> create table account7(ano number(7),bname varchar2(20),balance number(7));
+
+Table created.
+
+SQL> insert into account7 values('&ano','&bname','&balance');
+Enter value for ano: 12345
+Enter value for bname: cantonment
+Enter value for balance: 20000
+old   1: insert into account7 values('&ano','&bname','&balance')
+new   1: insert into account7 values('12345','cantonment','20000')
+1 row created.
+
+SQL> /
+Enter value for ano: 12346
+Enter value for bname: trichy
+Enter value for balance: 19000
+old   1: insert into account7 values('&ano','&bname','&balance')
+new   1: insert into account7 values('12346','trichy','19000')
+1 row created.
+
+SQL> /
+Enter value for ano: 12347
+Enter value for bname: jknagar
+Enter value for balance: 17000
+old   1: insert into account7 values('&ano','&bname','&balance')
+new   1: insert into account7 values('12347','jknagar','17000')
+
+1 row created.
+
+SQL> /
+Enter value for ano: 12348
+Enter value for bname: kknagar
+Enter value for balance: 15000
+old   1: insert into account7 values('&ano','&bname','&balance')
+new   1: insert into account7 values('12348','kknagar','15000')
+1 row created.
+
+SQL> select * from account7;
+
+       ANO BNAME		   BALANCE
+---------- -------------------- ----------
+     12345 cantonment		     20000
+     12346 trichy		     19000
+     12347 jknagar		     17000
+     12348 kknagar		     15000
+
+SQL> select bname from loan7 union all select bname from account7;
+
+BNAME
+--------------------
+cantonment
+rockfort
+bazar
+simco
+cantonment
+trichy
+jknagar
+kknagar
+8 rows selected.
+
+SQL> select bname from loan7 union select bname from account7;
+
+BNAME
+--------------------
+bazar
+cantonment
+jknagar
+kknagar
+rockfort
+simco
+trichy
+
+7 rows selected.
+
+SQL> select bname from loan7 intersect select bname from account7;
+
+
+BNAME
+--------------------
+cantonment
+
+SQL> select bname from loan7 minus select bname from account7;
+
+BNAME
+--------------------
+bazar
+rockfort
+simco
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+
+
+EX NO:02                                2.7 AGGREGATE FUNCTIONS
+SQL> create table branch7(bname varchar2(20),bcity varchar2(10),assets number(7));
+
+Table created.
+SQL> insert into branch7 values('&bname','&bity','&assets');
+Enter value for bname: cantonment
+Enter value for bity: trichy
+Enter value for assets: 50000
+old   1: insert into branch7 values('&bname','&bity','&assets')
+new   1: insert into branch7 values('cantonment','trichy','50000')
+1 row created.
+
+SQL> /
+Enter value for bname: rockfort
+Enter value for bity: madurai
+Enter value for assets: 40000
+old   1: insert into branch7 values('&bname','&bity','&assets')
+new   1: insert into branch7 values('rockfort','madurai','40000')
+1 row created.
+
+SQL> /
+Enter value for bname: tnagar
+Enter value for bity: chennai
+Enter value for assets: 30000
+old   1: insert into branch7 values('&bname','&bity','&assets')
+new   1: insert into branch7 values('tnagar','chennai','30000')
+1 row created.
+
+SQL> /
+Enter value for bname: kknagar
+Enter value for bity: salem
+Enter value for assets: 60000
+old   1: insert into branch7 values('&bname','&bity','&assets')
+new   1: insert into branch7 values('kknagar','salem','60000')
+1 row created.
+
+SQL> select * from branch7;
+BNAME		     BCITY	    ASSETS
+-------------------- ---------- ----------
+cantonment	     trichy	     50000
+rockfort	     madurai	     40000
+tnagar		     chennai	     30000
+kknagar 	     salem	     60000
+
+SQL> select bname,avg(assets) from branch7 where bname='cantonment' group by bname;
+BNAME		     AVG(ASSETS)
+-------------------- -----------
+cantonment		   50000
+SQL> select bname,min(assets) as minasset from branch7 where bname='rockfort' group by bname;
+
+BNAME		       MINASSET
+-------------------- ----------
+rockfort		  40000
+
+SQL> select bname,max(assets) as maxasset from branch7 where bname='rockfort' group by bname;
+BNAME		       MAXASSET
+-------------------- ----------
+rockfort		  40000
+
+SQL> select sum(assets) from branch7;
+SUM(ASSETS)
+-----------
+     180000
+
+SQL> select count(*) bcity from branch7 where bcity='trichy';
+     BCITY
+----------
+	 1
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+EX NO:02  2.8 AGGREGATE FUNCTION USING GROUP BY AND HAVING CLAUSE
+
+SQL> create table branch8(bname varchar2(20),bcity varchar2(10),assets number(7));
+
+Table created.
+SQL> insert into branch8 values('&bname','&bcity','&assets');
+Enter value for bname: cantonment
+Enter value for bcity: trichy
+Enter value for assets: 50000
+old   1: insert into branch8 values('&bname','&bcity','&assets')
+new   1: insert into branch8 values('cantonment','trichy','50000')
+1 row created.
+
+SQL> /
+Enter value for bname: rockfort
+Enter value for bcity: madurai
+Enter value for assets: 40000
+old   1: insert into branch8 values('&bname','&bcity','&assets')
+new   1: insert into branch8 values('rockfort','madurai','40000')
+1 row created.
+
+SQL> /
+Enter value for bname: tnagar
+Enter value for bcity: chennai
+Enter value for assets: 30000 
+old   1: insert into branch8 values('&bname','&bcity','&assets')
+new   1: insert into branch8 values('tnagar','chennai','30000')
+1 row created.
+
+SQL> / 
+Enter value for bname: kknagar
+Enter value for bcity: salem
+Enter value for assets: 60000
+old   1: insert into branch8 values('&bname','&bcity','&assets')
+new   1: insert into branch8 values('kknagar','salem','60000')
+1 row created.
+
+SQL> select * from branch8;
+
+BNAME		     BCITY	    ASSETS
+-------------------- ---------- ----------
+cantonment	     trichy	     50000
+rockfort	     madurai	     40000
+tnagar		     chennai	     30000
+kknagar 	     salem	     60000
+
+SQL> insert into branch8 values('rockfort','trichy',70000);
+1 row created.
+
+SQL> select * from branch8;
+
+BNAME		     BCITY	    ASSETS
+-------------------- ---------- ----------
+cantonment	     trichy	     50000
+rockfort	     madurai	     40000
+tnagar		     chennai	     30000
+kknagar 	     salem	     60000
+rockfort	     trichy	     70000
+
+SQL> select bname,avg(assets) from branch8 group by bname;
+
+BNAME		     AVG(ASSETS)
+-------------------- -----------
+rockfort		   55000
+kknagar 		   60000
+tnagar			   30000
+cantonment		   50000
+
+SQL> select bname,sum(assets) from branch8 group by bname having sum(assets)>30000;
+
+BNAME		     SUM(ASSETS)
+-------------------- -----------
+rockfort		  110000
+kknagar 		   60000
+cantonment		   50000
+
+SQL> select bname,count(assets) from branch8 group by bname having count(assets)>=1;
+
+BNAME		     COUNT(ASSETS)
+-------------------- -------------
+rockfort			 2
+kknagar 			 1
+tnagar				 1
+cantonment			 1
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX NO:02             2.9 NESTED SUBQUERIES,MEMBERSHIP(IN AND NOTIN)
+SQL> create table borrower10(cname varchar2(20),lno number(10));
+
+Table created.
+SQL> insert into borrower10 values('&cname','&lno');
+Enter value for cname: ragu
+Enter value for lno: 1001
+old   1: insert into borrower10 values('&cname','&lno')
+new   1: insert into borrower10 values('ragu','1001')
+1 row created.
+
+SQL> /
+Enter value for cname: thasu
+Enter value for lno: 1002
+old   1: insert into borrower10 values('&cname','&lno')
+new   1: insert into borrower10 values('thasu','1002')
+1 row created.
+
+SQL> /
+Enter value for cname: luffy
+Enter value for lno: 1003
+old   1: insert into borrower10 values('&cname','&lno')
+new   1: insert into borrower10 values('luffy','1003')
+1 row created.
+
+
+SQL> /
+Enter value for cname: zoro
+Enter value for lno: 1004
+old   1: insert into borrower10 values('&cname','&lno')
+new   1: insert into borrower10 values('zoro','1004')
+1 row created.
+
+SQL> create table depositor10(cname varchar2(20),ano number(10));
+Table created.
+
+SQL> insert into depositor10 values('&cname','&ano');
+Enter value for cname: thasu
+Enter value for ano: 12345
+old   1: insert into depositor10 values('&cname','&ano')
+new   1: insert into depositor10 values('thasu','12345')
+1 row created.
+
+SQL> /
+Enter value for cname: shafu
+Enter value for ano: 12346
+old   1: insert into depositor10 values('&cname','&ano')
+new   1: insert into depositor10 values('shafu','12346')
+1 row created.
+
+SQL> /
+Enter value for cname: ragu
+Enter value for ano: 12347
+old   1: insert into depositor10 values('&cname','&ano')
+new   1: insert into depositor10 values('ragu','12347')
+1 row created.
+
+SQL> /
+Enter value for cname: priya
+Enter value for ano: 12348
+old   1: insert into depositor10 values('&cname','&ano')
+new   1: insert into depositor10 values('priya','12348')
+1 row created.
+
+SQL> select * from borrower10;
+
+CNAME			    LNO
+-------------------- ----------
+ragu			   1001
+thasu			   1002
+luffy			   1003
+zoro			   1004
+
+SQL> select * from depositor10;
+CNAME			    ANO
+-------------------- ----------
+thasu			  12345
+shafu			  12346
+ragu			  12347
+priya			  12348
+
+SQL> select distinct cname from borrower10 where cname in(select cname from depositor10);
+CNAME
+--------------------
+ragu
+thasu
+
+SQL> select distinct cname from borrower10 where cname not in(select cname from depositor10);
+
+CNAME
+--------------------
+zoro
+luffy
+
+SQL> create table branch10(bname varchar2(20),bcity varchar2(20),assets number(7));
+Table created.
+
+SQL> insert into branch10 values('&bname','&bcity','&assets');
+Enter value for bname: cantonment
+Enter value for bcity: trichy
+Enter value for assets: 50000
+old   1: insert into branch10 values('&bname','&bcity','&assets')
+new   1: insert into branch10 values('cantonment','trichy','50000')
+1 row created.
+
+SQL> /
+Enter value for bname: rockfort
+Enter value for bcity: madurai
+Enter value for assets: 40000
+old   1: insert into branch10 values('&bname','&bcity','&assets')
+new   1: insert into branch10 values('rockfort','madurai','40000')
+1 row created.
+
+SQL> /
+Enter value for bname: tnagar
+Enter value for bcity: chennai
+Enter value for assets: 30000
+old   1: insert into branch10 values('&bname','&bcity','&assets')
+new   1: insert into branch10 values('tnagar','chennai','30000')
+1 row created.
+
+SQL> /
+Enter value for bname: kknagar
+Enter value for bcity: salem
+Enter value for assets: 60000
+old   1: insert into branch10 values('&bname','&bcity','&assets')
+new   1: insert into branch10 values('kknagar','salem','60000')
+1 row created.
+
+SQL> /
+Enter value for bname: rockfort
+Enter value for bcity: trichy
+Enter value for assets: 70000
+old   1: insert into branch10 values('&bname','&bcity','&assets')
+new   1: insert into branch10 values('rockfort','trichy','70000')
+1 row created.
+
+SQL> select bname,assets from branch10 where assets>some(select assets from branch7 where bcity='madurai');
+
+BNAME			 ASSETS
+-------------------- ----------
+cantonment		  50000
+kknagar 		  60000
+rockfort		  70000
+
+SQL> SQL> select bname,assets from branch10 where assets>all(select assets from branch10 where bcity='maduari');
+
+BNAME			 ASSETS
+-------------------- ----------
+tnagar			  30000
+rockfort		             40000
+cantonment		             50000
+kknagar 		             60000
+rockfort		  70000
+
+SQL> select bname,avg_asset from(select bname,avg(assets) as avg_asset from branch10 group by bname) where avg_asset>40000;
+BNAME		      AVG_ASSET
+-------------------- ----------
+rockfort		  55000
+kknagar 		  60000
+cantonment		  50000
+
+SQL> select max(sum_asset)from(select bname,sum(assets)as sum_asset from branch10 group by bname);
+
+MAX(SUM_ASSET)
+--------------
+	110000
+
+SQL> commit;
+Commit complete.
+
+SQL> create table account10(ano number(10),bname varchar2(20),balance number(8));
+Table created.
+
+SQL> insert into account10 values('&ano','&bname','&balance');
+Enter value for ano: 12345
+Enter value for bname: cantonment
+Enter value for balance: 20000
+old   1: insert into account10 values('&ano','&bname','&balance')
+new   1: insert into account10 values('12345','cantonment','20000')
+1 row created.
+
+SQL> /
+Enter value for ano: 12346
+Enter value for bname: trichy
+Enter value for balance: 19000 
+old   1: insert into account10 values('&ano','&bname','&balance')
+new   1: insert into account10 values('12346','trichy','19000')
+1 row created.
+
+SQL> /
+Enter value for ano: 12347
+Enter value for bname: jknagar
+Enter value for balance: 17000 
+old   1: insert into account10 values('&ano','&bname','&balance')
+new   1: insert into account10 values('12347','jknagar','17000')
+1 row created.
+
+SQL> /
+Enter value for ano: 12348
+Enter value for bname: kknagar
+Enter value for balance: 15000 
+old   1: insert into account10 values('&ano','&bname','&balance')
+new   1: insert into account10 values('12348','kknagar','15000')
+1 row created.
+
+SQL> select * from account10;
+       ANO BNAME		   BALANCE
+---------- -------------------- ----------
+     12345 cantonment		     20000
+     12346 trichy		     19000
+     12347 jknagar		     17000
+     12348 kknagar		     15000
+
+SQL> create table branch11(bname varchar2(20),bcity varchar2(20),assets number(10));
+Table created.
+
+SQL> insert into branch11 values('&bname','&bcity','&assets');
+Enter value for bname: cantonment
+Enter value for bcity: trichy
+Enter value for assets: 50000
+old   1: insert into branch11 values('&bname','&bcity','&assets')
+new   1: insert into branch11 values('cantonment','trichy','50000')
+1 row created.
+
+SQL> /
+Enter value for bname: rockfort
+Enter value for bcity: madurai
+Enter value for assets: 40000
+old   1: insert into branch11 values('&bname','&bcity','&assets')
+new   1: insert into branch11 values('rockfort','madurai','40000')
+1 row created.
+
+SQL> /
+Enter value for bname: tnagar
+Enter value for bcity: chennai
+Enter value for assets: 30000
+old   1: insert into branch11 values('&bname','&bcity','&assets')
+new   1: insert into branch11 values('tnagar','chennai','30000')
+1 row created.
+
+SQL> /
+Enter value for bname: kknagar
+Enter value for bcity: salem
+Enter value for assets: 60000
+old   1: insert into branch11 values('&bname','&bcity','&assets')
+new   1: insert into branch11 values('kknagar','salem','60000')
+1 row created.
+
+SQL> /
+Enter value for bname: rockfort
+Enter value for bcity: trichy
+Enter value for assets: 70000
+old   1: insert into branch11 values('&bname','&bcity','&assets')
+new   1: insert into branch11 values('rockfort','trichy','70000')
+1 row created.
+SQL> delete from account10 where bname='cantonment';
+1 row deleted.
+SQL> select * from account10;
+       ANO BNAME		   BALANCE
+---------- -------------------- ----------
+     12346 trichy		     19000
+     12347 jknagar		     17000
+     12348 kknagar		     15000
+SQL> delete from account10 where bname in(select bname from branch10 where bcity='salem');
+1 row deleted.
+SQL> select * from account10;
+       ANO BNAME		   BALANCE
+---------- -------------------- ----------
+     12346 trichy		     19000
+     12347 jknagar		     17000
+SQL> delete from account10 where balance<(select avg(balance)from account10);
+1 row deleted.
+SQL> select * from account10;
+       ANO BNAME		   BALANCE
+---------- -------------------- ----------
+     12346 trichy		     19000
+
+SQL> commit;
+Commit complete.
+EX NO:02                                       2.10 VIEWS
+SQL> create table br(bname varchar2(20),bcity varchar2(20),asset number(10));
+Table created.
+
+SQL> insert into br values('&bname','&bcity','&asset');
+Enter value for bname: trichy
+Enter value for bcity: airport
+Enter value for asset: 100000
+old   1: insert into br values('&bname','&bcity','&asset')
+new   1: insert into br values('trichy','airport','100000')
+1 row created.
+
+SQL> /
+Enter value for bname: ariya
+Enter value for bcity: trichy
+Enter value for asset: 200000
+old   1: insert into br values('&bname','&bcity','&asset')
+new   1: insert into br values('ariya','trichy','200000')
+1 row created.
+
+SQL> /
+Enter value for bname: keeran
+Enter value for bcity: pudu
+Enter value for asset: 300000
+old   1: insert into br values('&bname','&bcity','&asset')
+new   1: insert into br values('keeran','pudu','300000')
+1 row created.
+
+SQL> /
+Enter value for bname: vallam
+Enter value for bcity: trichy
+Enter value for asset: 400000
+old   1: insert into br values('&bname','&bcity','&asset')
+new   1: insert into br values('vallam','trichy','400000')
+1 row created.
+
+SQL> select * from br;
+BNAME		     BCITY		       ASSET
+-------------------- -------------------- ----------
+trichy		     airport		      100000
+ariya		     trichy		      200000
+keeran		     pudu		      300000
+vallam		     trichy		      400000
+
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+EX NO:02                                      2.11 DELETION
+SQL> create table act(ano number(10),bname varchar2(20),amount number(10));
+Table created.
+
+SQL> insert into act values('&ano','&bname','&amount');      
+Enter value for ano: 1001
+Enter value for bname: trichy
+Enter value for amount: 4001
+old   1: insert into act values('&ano','&bname','&amount')
+new   1: insert into act values('1001','trichy','4001')
+1 row created.
+
+SQL> /
+Enter value for ano: 1002
+Enter value for bname: airport
+Enter value for amount: 4002
+old   1: insert into act values('&ano','&bname','&amount')
+new   1: insert into act values('1002','airport','4002')
+1 row created.
+
+SQL> /
+Enter value for ano: 1003
+Enter value for bname: kknagar
+Enter value for amount: 4003
+old   1: insert into act values('&ano','&bname','&amount')
+new   1: insert into act values('1003','kknagar','4003')
+
+1 row created.
+
+SQL> /
+Enter value for ano: 1004
+Enter value for bname: jknagar
+Enter value for amount: 4004
+old   1: insert into act values('&ano','&bname','&amount')
+new   1: insert into act values('1004','jknagar','4004')
+1 row created.
+
+SQL> select * from act;
+
+       ANO BNAME		    AMOUNT
+---------- -------------------- ----------
+      1001 trichy		      4001
+      1002 airport		      4002
+      1003 kknagar		      4003
+      1004 jknagar		      4004
+
+SQL> create table br2(bname varchar2(20),bcity varchar2(20),asset number(10));
+Table created.
+
+SQL> insert into br2 values('&bname','&bcity','&asset');
+Enter value for bname: trichy
+Enter value for bcity: airport
+Enter value for asset: 100000
+old   1: insert into br2 values('&bname','&bcity','&asset')
+new   1: insert into br2 values('trichy','airport','100000')
+1 row created.
+
+SQL> /
+Enter value for bname: ariya
+Enter value for bcity: trichy
+Enter value for asset: 200000
+old   1: insert into br2 values('&bname','&bcity','&asset')
+new   1: insert into br2 values('ariya','trichy','200000')
+1 row created.
+
+SQL> /
+Enter value for bname: keeran
+Enter value for bcity: pudu
+Enter value for asset: 300000
+old   1: insert into br2 values('&bname','&bcity','&asset')
+new   1: insert into br2 values('keeran','pudu','300000')
+1 row created.
+
+SQL> select * from br2;
+BNAME		     BCITY		       ASSET
+-------------------- -------------------- ----------
+trichy		     airport		      100000
+ariya		     trichy		      200000
+keeran		     pudu		      300000
+
+SQL> delete from act where bname='trichy';
+1 row deleted.
+
+SQL> select * from act;
+
+       ANO BNAME		    AMOUNT
+---------- -------------------- ----------
+      1002 airport		      4002
+      1003 kknagar		      4003
+      1004 jknagar		      4004
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+EX NO:02                                     2.12 UPDATE
+SQL> create table act2(ano number(10),bname varchar2(20),amount number(10));
+Table created.
+
+SQL> insert into act2 values('&ano','&bname','&amount');
+Enter value for ano: 1003
+Enter value for bname: kknagar
+Enter value for amount: 4003
+old   1: insert into act2 values('&ano','&bname','&amount')
+new   1: insert into act2 values('1003','kknagar','4003'
+1 row created.
+
+SQL> /
+Enter value for ano: 1004
+Enter value for bname: jknagar
+Enter value for amount: 4004
+old   1: insert into act2 values('&ano','&bname','&amount')
+new   1: insert into act2 values('1004','jknagar','4004')
+1 row created.
+
+SQL> select * from act2;
+       ANO BNAME		    AMOUNT
+---------- -------------------- ----------
+      1003 kknagar		      4003
+      1004 jknagar		      4004
+
+SQL> update act2 set amount=amount*1.1;
+2 rows updated.
+
+SQL> select * from act2;
+       ANO BNAME		    AMOUNT
+---------- -------------------- ----------
+      1003 kknagar		      4403
+      1004 jknagar		      4404
+
+SQL> update act2 set amount=amount*5;
+2 rows updated.
+
+SQL> select * from act2;
+       ANO BNAME		    AMOUNT
+---------- -------------------- ----------
+      1003 kknagar		     22015
+      1004 jknagar		     22020
+SQL> update act2 set amount=case when amount<=10000 then amount*1.05 else amount*5 end;
+2 rows updated.
+SQL> select * from act2;
+       ANO BNAME		    AMOUNT
+---------- -------------------- ----------
+      1003 kknagar		    110075
+      1004 jknagar		    110100
+SQL> commit;
+Commit complete.
+EX NO:02                                              2.13 JOINS
+SQL> create table syed2(name varchar2(10),regno number(5));
+Table created.
+
+SQL> insert into syed2 values('&name','&regno');
+Enter value for name: thameem
+Enter value for regno: 101
+old   1: insert into syed2 values('&name','&regno')
+new   1: insert into syed2 values('thameem','101')
+1 row created.
+
+SQL> /
+Enter value for name: yasar
+Enter value for regno: 102
+old   1: insert into syed2 values('&name','&regno')
+new   1: insert into syed2 values('yasar','102')
+1 row created.
+
+SQL> /
+Enter value for name: ansari
+Enter value for regno: 103
+old   1: insert into syed2 values('&name','&regno')
+new   1: insert into syed2 values('ansari','103')
+1 row created.
+
+SQL> /
+Enter value for name: shameer
+Enter value for regno: 104
+old   1: insert into syed2 values('&name','&regno')
+new   1: insert into syed2 values('shameer','104')
+1 row created.
+
+SQL> /
+Enter value for name: pughal
+Enter value for regno: 105
+old   1: insert into syed2 values('&name','&regno')
+new   1: insert into syed2 values('pughal','105')
+1 row created.
+
+SQL> /
+Enter value for name: safath
+Enter value for regno: 106
+old   1: insert into syed2 values('&name','&regno')
+new   1: insert into syed2 values('safath','106')
+1 row created.
+
+SQL> select * from syed2;
+NAME		REGNO
+---------- ----------
+thameem 	  101
+yasar		  102
+ansari		  103
+shameer 	  104
+pughal		  105
+safath		  106
+6 rows selected.
+
+SQL> create table ahamed2(regno number(7),total number(8));
+Table created.
+
+SQL> insert into ahamed2 values('&regno','&total');
+Enter value for regno: 101
+Enter value for total: 500
+old   1: insert into ahamed2 values('&regno','&total')
+new   1: insert into ahamed2 values('101','500')
+1 row created.
+
+SQL> /
+Enter value for regno: 102
+Enter value for total: 485
+old   1: insert into ahamed2 values('&regno','&total')
+new   1: insert into ahamed2 values('102','485')
+1 row created.
+
+SQL> /
+Enter value for regno: 103
+Enter value for total: 455
+old   1: insert into ahamed2 values('&regno','&total')
+new   1: insert into ahamed2 values('103','455')
+1 row created.
+
+SQL> /
+Enter value for regno: 104
+Enter value for total: 355
+old   1: insert into ahamed2 values('&regno','&total')
+new   1: insert into ahamed2 values('104','355')
+1 row created.
+
+SQL> /
+Enter value for regno: 105
+Enter value for total: 488
+old   1: insert into ahamed2 values('&regno','&total')
+new   1: insert into ahamed2 values('105','488')
+1 row created.
+
+SQL> /
+Enter value for regno: 106
+Enter value for total: 366
+old   1: insert into ahamed2 values('&regno','&total')
+new   1: insert into ahamed2 values('106','366')
+1 row created.
+
+SQL> /
+Enter value for regno: 107
+Enter value for total: 460
+old   1: insert into ahamed2 values('&regno','&total')
+new   1: insert into ahamed2 values('107','460')
+1 row created.
+
+SQL> select * from ahamed2;
+
+     REGNO	TOTAL
+---------- ----------
+       101	  500
+       102	  485
+       103	  455
+       104	  355
+       105	  488
+       106	  366
+       107	  460
+7 rows selected.
+
+SQL> select * from syed2 join ahamed2 on syed2.regno=ahamed2.regno;
+NAME		REGNO	   REGNO      TOTAL
+---------- ---------- ---------- ----------
+thameem 	  101	     101	500
+yasar		  102	     102	485
+ansari		  103	     103	455
+shameer 	  104	     104	355
+pughal		  105	     105	488
+safath		  106	     106	366
+6 rows selected.
+SQL> select * from syed2 left join ahamed2 on syed2.regno=ahamed2.regno;
+NAME		REGNO	   REGNO      TOTAL
+---------- ---------- ---------- ----------
+thameem 	  101	     101	500
+yasar		  102	     102	485
+ansari		  103	     103	455
+shameer 	  104	     104	355
+pughal		  105	     105	488
+safath		  106	     106	366
+6 rows selected.
+SQL> select * from syed2 right join ahamed2 on syed2.regno=ahamed2.regno;
+NAME		REGNO	   REGNO      TOTAL
+---------- ---------- ---------- ----------
+thameem 	  101	     101	500
+yasar		  102	     102	485
+ansari		  103	     103	455
+shameer 	  104	     104	355
+pughal		  105	     105	488
+safath		  106	     106	366
+			     107	460
+7 rows selected.
+SQL> commit;
+Commit complete.
+
+
+EX NO:03                       3.1 REVERSE THE STRING
+
+SQL> set serveroutput on;
+SQL> declare
+  2  str1 varchar2(25):='dstr';
+  3  str2 varchar2(25);
+  4  len number;
+  5  i number;
+  6  begin
+  7  len:=length(str1);
+  8  for i in reverse 1..len
+  9  loop
+ 10  str2:=str2||substr(str1,i,1);
+ 11  end loop;
+ 12  dbms_output.put_line('Reverse of string is:'||str2);
+ 13  end;
+ 14  /
+Reverse of string is:rtsd
+
+PL/SQL procedure successfully completed.
+
+SQL> commit;
+
+Commit complete.
+
+
+
+EX NO:03                   3.2  STUDENT MARK PREPARATION
+SQL> create table student10(rollno number(10),name varchar2(20),mark1 number(10),mark2 number(10),total number(10),average number(10));
+Table created.
+
+SQL> insert into student10 values(&rollno,'&name',&mark1,&mark2,'','');
+Enter value for rollno: 40
+Enter value for name: syed
+Enter value for mark1: 90
+Enter value for mark2: 98
+old   1: insert into student10 values(&rollno,'&name',&mark1,&mark2,'','')
+new   1: insert into student10 values(40,'syed',90,98,'','')
+1 row created.
+
+SQL> /
+Enter value for rollno: 39
+Enter value for name: marzuq
+Enter value for mark1: 76
+Enter value for mark2: 78
+old   1: insert into student10 values(&rollno,'&name',&mark1,&mark2,'','')
+new   1: insert into student10 values(39,'marzuq',76,78,'','')
+1 row created.
+
+SQL> /
+Enter value for rollno: 31
+Enter value for name: kadhar
+Enter value for mark1: 90
+Enter value for mark2: 95
+old   1: insert into student10 values(&rollno,'&name',&mark1,&mark2,'','')
+new   1: insert into student10 values(31,'kadhar',90,95,'','')
+1 row created.
+
+SQL> /
+Enter value for rollno: 38
+Enter value for name: mohamed
+Enter value for mark1: 86
+Enter value for mark2: 99
+old   1: insert into student10 values(&rollno,'&name',&mark1,&mark2,'','')
+new   1: insert into student10 values(38,'mohamed',86,99,'','')
+1 row created.
+
+SQL> /
+Enter value for rollno: 26
+Enter value for name: Aahil
+Enter value for mark1: 70
+Enter value for mark2: 70
+old   1: insert into student10 values(&rollno,'&name',&mark1,&mark2,'','')
+new   1: insert into student10 values(26,'Aahil',70,70,'','')
+1 row created.
+
+SQL> select * from student10;
+    ROLLNO NAME 		     MARK1	MARK2	   TOTAL    AVERAGE
+---------- -------------------- ---------- ---------- ---------- ----------
+	40 syed 			90	   98
+	39 marzuq			76	   78
+	31 kadhar			90	   95
+	38 mohamed			86	   99
+	26 Aahil			70	   70
+
+SQL> set serveroutput on;
+SQL> declare
+  2  cursor c1 is select * from student10;
+  3  x student10%rowtype;
+  4  begin
+  5  open c1;
+  6  loop
+  7  fetch c1 into x;
+  8  exit when c1%notfound;
+  9  x.total:=x.mark1+x.mark2;
+ 10  x.average:=x.total/2;
+ 11  update student10 set total=x.total,average=x.average where rollno=x.rollno;
+ 12  update student10 set total=x.total,average=x.average where rollno=x.rollno;
+ 13  end loop;
+ 14  close c1;
+ 15  end;
+ 16  /
+
+
+PL/SQL procedure successfully completed.
+
+
+SQL> select * from student10;
+
+    ROLLNO NAME 		     MARK1	MARK2	   TOTAL    AVERAGE
+---------- -------------------- ---------- ---------- ---------- ----------
+	40 syed 			90	   98	     188	 94
+	39 marzuq			76	   78	     154	 77
+	31 kadhar			90	   95	     185	 93
+	38 mohamed			86	   99	     185	 93
+	26 Aahil			70	   70	     140	 70
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+EX NO:03                    3.3 PAY ROLL PREPARATION
+
+SQL> create table payroll2(eno number(4),ename varchar2(10),bpay number(7),hra number(6),
+  2  da number(6),pf number(6),gpay number(7),npay number(7));
+Table created.
+
+SQL> insert into payroll2 values(&eno,'&ename',&bpay,&hra,&da,&pf,&gpay,&npay);
+Enter value for eno: 101
+Enter value for ename: Syed
+Enter value for bpay: 85000
+Enter value for hra: 0
+Enter value for da: 0
+Enter value for pf: 0
+Enter value for gpay: 0
+Enter value for npay: 0
+old   1: insert into payroll2 values(&eno,'&ename',&bpay,&hra,&da,&pf,&gpay,&npay)
+new   1: insert into payroll2 values(101,'Syed',85000,0,0,0,0,0)
+1 row created.
+
+SQL> /
+Enter value for eno: 102
+Enter value for ename: Ahamed
+Enter value for bpay: 70000
+Enter value for hra: 0
+Enter value for da: 0
+Enter value for pf: 0
+Enter value for gpay: 0
+Enter value for npay: 0
+old   1: insert into payroll2 values(&eno,'&ename',&bpay,&hra,&da,&pf,&gpay,&npay)
+new   1: insert into payroll2 values(102,'Ahamed',70000,0,0,0,0,0)
+1 row created.
+
+SQL> /
+Enter value for eno: 103
+Enter value for ename: Ziya
+Enter value for bpay: 90000
+Enter value for hra: 0
+Enter value for da: 0
+Enter value for pf: 0
+Enter value for gpay: 0
+Enter value for npay: 0
+old   1: insert into payroll2 values(&eno,'&ename',&bpay,&hra,&da,&pf,&gpay,&npay)
+new   1: insert into payroll2 values(103,'Ziya',90000,0,0,0,0,0)
+1 row created.
+
+SQL> /
+Enter value for eno: 104
+Enter value for ename: Riyas
+Enter value for bpay: 80000
+Enter value for hra: 0
+Enter value for da: 0
+Enter value for pf: 0
+Enter value for gpay: 0
+Enter value for npay: 0
+old   1: insert into payroll2 values(&eno,'&ename',&bpay,&hra,&da,&pf,&gpay,&npay)
+new   1: insert into payroll2 values(104,'Riyas',80000,0,0,0,0,0)
+1 row created.
+
+SQL> select 8 from payroll2;
+	 8
+----------
+	 8
+	 8
+	 8
+	 8
+
+SQL> set serveroutput on;
+SQL> declare
+  2  cursor a is select * from payroll2;
+  3  x payroll2%rowtype;
+  4  begin
+  5  open a;
+  6  loop
+  7  fetch a into x;
+  8  exit when a%notfound;
+  9  x.hra:=x.bpay*0.5;
+ 10  x.pf:=x.bpay*0.12;
+ 11  x.da:=x.bpay*0.15;
+ 12  x.gpay:=x.bpay+x.hra+x.da;
+ 13  x.npay:=x.gpay-x.pf;
+ 14  update payroll2 set hra=x.hra,da=x.da,pf=x.pf,gpay=x.gpay,npay=x.npay where eno=x.eno;
+ 15  end loop;
+ 16  close a;
+ 17  end;
+ 18  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from payroll2;
+
+       ENO ENAME	    BPAY	HRA	    DA	       PF	GPAY
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+      NPAY
+----------
+       101 Syed 	   85000      42500	 12750	    10200     140250
+    130050
+
+       102 Ahamed	   70000      35000	 10500	     8400     115500
+    107100
+
+       103 Ziya 	   90000      45000	 13500	    10800     148500
+    137700
+
+
+       ENO ENAME	    BPAY	HRA	    DA	       PF	GPAY
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+      NPAY
+
+       104 Riyas	   80000      40000	 12000	     9600     132000
+    122400
+
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+
+
+
+
+
+
+
+
+EX NO:03             3.4 FACTORIAL NUMBER USING RECURSIVE FUNCTION
+
+SQL> spool on;
+SQL> set serveroutput on; 
+SQL> create function facto5(N Number)
+  2  return integer is
+  3  begin
+  4  if(n=0)then
+  5  return 1;
+  6  else
+  7  return(N*facto(N-1));
+  8  end if;
+  9  end;
+ 10  /
+
+Function created.
+
+SQL> declare
+  2  N Number;
+  3  N1 Number;
+  4  Begin 
+  5  N:=&N;
+  6  N1:=facto(N);
+  7  dbms_output.put_line('******************');
+  8  dbms_output.put_line('Factorial of'||N||'Is'||N1);
+  9  dbms_output.put_line('******************');
+ 10  end;
+ 11  /
+Enter value for n: 5
+old   5: N:=&N;
+new   5: N:=5;
+******************
+Factorial of5Is120
+******************
+
+PL/SQL procedure successfully completed.
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+EX NO:03                      3.5 EXCEPTION HANDLING
+
+SQL> set serveroutput on;
+SQL> declare
+  2  a number:=0;
+  3  b number:=1;
+  4  c number;
+  5  begin
+  6  dbms_output.put_line(a||''||b||'');
+  7  for i in 3..10 loop
+  8  c:=a+b;
+  9  dbms_output.put_line(c||'');
+ 10  a:=b;
+ 11  b:=c;
+ 12  end loop;
+ 13  end;
+ 14  /
+output
+01
+1
+2
+3
+5
+8
+PL/SQL procedure successfully completed
+
+
+
+
+
+
+
+
+
